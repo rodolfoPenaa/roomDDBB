@@ -1,4 +1,4 @@
-package com.example.roomforKOTLIN
+package com.example.roomforKOTLIN.model
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
