@@ -4,19 +4,24 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.roomforKOTLIN.model.Task
 
-@Dao
+        @Dao
         interface TaskDAO {
         @Insert (onConflict = OnConflictStrategy.REPLACE)
+
         //CORRUTINA
-         suspend fun insertTask(task: Task)
+        suspend fun insertTask(task: Task)
+
         @Insert
             fun insertMasiveTask(list: List<Task>)
+
         // @Update                          //OPCIONAL
            // fun updateTask(task:Task)
+
         @Delete
             fun deleteEspecificTask(task: Task)
 
+        // CORUTINA 2.0
         @Query("SELECT * FROM task_table ORDER BY idTask ASC")
-            fun getAllTask():LiveData<List<Task>>
+        fun getAllTask():LiveData<List<Task>>
+        }
 
-}

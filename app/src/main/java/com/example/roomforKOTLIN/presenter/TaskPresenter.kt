@@ -25,15 +25,18 @@ class TaskPresenter(application: Application, val iView:IView): IPresenter, Coro
         mRepository = TaskRepository(taskDAOinPresenter)
         allLiveDataTaskDATA=mRepository.mAllTask
     }
-    override fun insertTASK(interfaceTask: Task){
+    override fun insertTASK(anyTask: Task){
         launch {
-            mRepository.inserTask(interfaceTask)
-            iView.showToastMessage("Saving")
+            mRepository.inserTask(anyTask)
+            //iView.showToastMessage("Saving")
         }
     }
-    override fun getAlltask() {
-    iView.showAllTask(allLiveDataTaskDATA)
+ /*
+    override fun getAlltask(allTaskCreated: LiveData<MutableList<Task>>) {
+        lunch{
+            allLiveDataTaskDATA
+            iView.showAllTask(allLiveDataTaskDATA)
+        }
     }
-
-
+  */
 }
